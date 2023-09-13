@@ -31,6 +31,8 @@ c = alt.Chart(df_kart).mark_circle().encode(
 
 st.altair_chart(c, use_container_width=True)
 
+st.line_chart(df_kart,x='Acceleration',y=['Mini-Turbo','Ground Handling'])
+
 chosen_kart = st.selectbox('Pick a Kart', df_kart['Body'])
 
 df_single_kart = df_kart[df_kart['Body'] == chosen_kart].drop(columns=['Body'])
@@ -38,4 +40,3 @@ df_single_kart = df_kart[df_kart['Body'] == chosen_kart].drop(columns=['Body'])
 df_unp_kart = df_single_kart.unstack().rename_axis(['category', 'row number']).reset_index().drop(columns='row number').rename({0: 'strength'}, axis=1)
 
 st.bar_chart(df_unp_kart, x='category', y='strength')
-

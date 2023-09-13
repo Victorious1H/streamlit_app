@@ -13,6 +13,7 @@ st.dataframe(df_racer.style
             .highlight_max(color='lightgreen', axis=0,subset=['Speed', 'Acceleration', 'Weight', 'Handling', 'Traction/Grip', 'Mini-Turbo', 'Times First Place', 'Total Races'])
             .highlight_min(color='red', axis=0,subset=['Speed', 'Acceleration', 'Weight', 'Handling', 'Traction/Grip', 'Mini-Turbo', 'Times First Place', 'Total Races']))
 st.line_chart(df_racer,x='Speed',y=['Acceleration','Weight','Times First Place'])
+
 st.header("Racer speed does not seem to correlate to number of races won")
 x = st.slider( 'How Many Racers to Show',1,len(df_racer))
 
