@@ -6,14 +6,14 @@ st.sidebar.markdown("# Kart Configurations 🏎️")
 
 st.write("What Kart Configuration is Best?")
 
-
 df_kart = pd.read_csv ('/workspaces/streamlit_app/data/kart_stats.csv')
 
-st.write(df_kart)
+df_kart = df_kart[['Body','Weight','Acceleration','On-Road traction','Mini-Turbo','Ground Speed','Ground Handling']]
+
 
 st.dataframe(df_kart.style
-            .highlight_max(color='lightgreen', axis=0,subset=['Body','Weight','Acceleration','On-Road traction','Off-Road Traction','Mini-Turbo','Ground Speed','Water Speed','Anti-Gravity Speed','Air Speed','Ground Handling','Water Handling','Anti-Gravity Handling','Air Handling'])
-            .highlight_min(color='red', axis=0,subset=['Body','Weight','Acceleration','On-Road traction','Off-Road Traction','Mini-Turbo','Ground Speed','Water Speed','Anti-Gravity Speed','Air Speed','Ground Handling','Water Handling','Anti-Gravity Handling','Air Handling']))
+            .highlight_max(color='lightgreen', axis=0,subset=['Body','Weight','Acceleration','On-Road traction','Mini-Turbo','Ground Speed','Ground Handling'])
+            .highlight_min(color='red', axis=0,subset=['Body','Weight','Acceleration','On-Road traction','Mini-Turbo','Ground Speed','Ground Handling']))
 
 chosen_kart = st.selectbox('Pick a Kart', df_kart['Body'])
 
