@@ -2,20 +2,20 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# Set page title and sidebar title
+
 st.markdown("# Kart Configurations 🏎️")
 st.sidebar.markdown("# Kart Configurations 🏎️")
 
-# Display main title
+
 st.write("What Kart Configuration is Best?")
 
-# Read the kart data
+
 df_kart = pd.read_csv('/workspaces/streamlit_app/data/kart_stats.csv')
 
-# Define the columns to display
+
 columns_to_display = ['Body', 'Weight', 'Acceleration', 'On-Road traction', 'Mini-Turbo', 'Ground Speed', 'Ground Handling']
 
-# Filter and display the data in a DataFrame
+
 st.dataframe(
     df_kart[columns_to_display]
     .style
